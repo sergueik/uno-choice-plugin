@@ -1,0 +1,96 @@
+
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>1</daysToKeep>
+    <numToKeep>1</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>Gender</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>Male</string>
+              <string>Female</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>DEBUG</name>
+          <description></description>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@0.23-SNAPSHOT">
+          <name>Profession</name>
+          <description></description>
+          <randomName>choice-parameter-510449191794105</randomName>
+          <script class="org.biouno.unochoice.model.ScriptlerScript">
+            <scriptlerScriptId>basic_choice_parameter_script.groovy</scriptlerScriptId>
+            <parameters>
+              <entry>
+                <string></string>
+                <string></string>
+              </entry>
+              <entry>
+                <string>Gender</string>
+                <string>Male</string>
+              </entry>
+              <entry>
+                <string>DEBUG</string>
+                <string>on</string>
+              </entry>
+            </parameters>
+          </script>
+          <visibleItemCount>1</visibleItemCount>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>Gender,DEBUG</referencedParameters>
+          <choiceType>PT_SINGLE_SELECT</choiceType>
+          <filterable>true</filterable>
+        </org.biouno.unochoice.CascadeChoiceParameter>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <com.synopsys.arc.jenkinsci.plugins.jobrestrictions.jobs.JobRestrictionProperty plugin="job-restrictions@0.3"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.7">
+      <builderId>1419953437348_7</builderId>
+      <scriptId>ArtifactoryRpmVersionGrabber.groovy</scriptId>
+      <propagateParams>true</propagateParams>
+      <parameters/>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+    <hudson.plugins.groovy.Groovy plugin="groovy@1.18">
+      <scriptSource class="hudson.plugins.groovy.StringScriptSource">
+        <command>println &apos;Placeholder&apos;</command>
+      </scriptSource>
+      <groovyName>groovy-2.3.2</groovyName>
+      <parameters></parameters>
+      <scriptParameters></scriptParameters>
+      <properties></properties>
+      <javaOpts></javaOpts>
+      <classPath></classPath>
+    </hudson.plugins.groovy.Groovy>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.7">
+      <builderId>1419954188928_9</builderId>
+      <scriptId>basic_build_step.groovy</scriptId>
+      <propagateParams>true</propagateParams>
+      <parameters/>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
