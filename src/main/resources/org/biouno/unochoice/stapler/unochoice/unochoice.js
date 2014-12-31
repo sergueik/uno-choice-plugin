@@ -837,10 +837,12 @@ var UnoChoice = UnoChoice || (function($) {
      /* public */ function getParameterValue(htmlParameter) {
     	var e = jQuery(htmlParameter);
         var value = '';
-        if (e.attr('name') == 'value') {
+
+        if (e.attr('name') == 'value' || (!!e.attr('name') && e.attr('name').toLowerCase().match('.value$')) ) {
             value = getElementValue(htmlParameter);
         }  else if (e.prop('tagName') == 'DIV') {
-            var subElements = e.find('input[name="value"]');
+            alert('==>' + e.prop('tagName') +' id = ' + e.attr('id') );
+            var subElements = e.find('input[name$="value"]');
             if (subElements) {
                 var valueBuffer = Array();
                 subElements.each(function() {
@@ -870,10 +872,12 @@ var UnoChoice = UnoChoice || (function($) {
     function getElementValue(htmlParameter) {
         var value = '';
         var e = jQuery(htmlParameter);
+
         if (e.prop('tagName') == 'SELECT') {
             value = getSelectValues(e);
         } else if (e.attr('type') == 'checkbox' || e.attr('type') == 'radio') {
-            value = (e.attr('checked')== true || e.attr('checked')== 'checked') ? e.attr('value'): '';
+            alert(e.attr('value'));
+            value = (e.attr('checked')== true || e.attr('checked')== 'true' ||  e.attr('checked')== 'checked') ? e.attr('value'): '';
         } else {
             value = e.attr('value');
         }
