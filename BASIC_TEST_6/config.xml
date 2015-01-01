@@ -1,4 +1,3 @@
-
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
@@ -48,10 +47,10 @@
           <defaultValue>2</defaultValue>
           <multiSelectDelimiter>,</multiSelectDelimiter>
         </com.cwctravel.hudson.plugins.extended__choice__parameter.ExtendedChoiceParameterDefinition>
-        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@0.23-SNAPSHOT">
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@0.24-SNAPSHOT">
           <name>Profession</name>
           <description></description>
-          <randomName>choice-parameter-1888311918417</randomName>
+          <randomName>choice-parameter-6068863978243</randomName>
           <script class="org.biouno.unochoice.model.ScriptlerScript">
             <scriptlerScriptId>basic_choice_parameter_script.groovy</scriptlerScriptId>
             <parameters>
@@ -59,17 +58,32 @@
                 <string></string>
                 <string></string>
               </entry>
+              <entry>
+                <string>Gender</string>
+                <string>Male</string>
+              </entry>
+              <entry>
+                <string>LetterSet</string>
+                <string>X,Y</string>
+              </entry>
+              <entry>
+                <string>RadioButtonInput</string>
+                <string>1</string>
+              </entry>
+              <entry>
+                <string>DEBUG</string>
+                <string></string>
+              </entry>
             </parameters>
           </script>
           <visibleItemCount>1</visibleItemCount>
           <parameters class="linked-hash-map"/>
-          <referencedParameters>Gender,DEBUG,LetterSet,RadioButtonInput</referencedParameters>
+          <referencedParameters>Gender,DEBUG,RadioButtonInput,LetterSet</referencedParameters>
           <choiceType>PT_SINGLE_SELECT</choiceType>
           <filterable>false</filterable>
         </org.biouno.unochoice.CascadeChoiceParameter>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <com.synopsys.arc.jenkinsci.plugins.jobrestrictions.jobs.JobRestrictionProperty plugin="job-restrictions@0.3"/>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -81,18 +95,19 @@
   <builders>
     <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.7">
       <builderId>1419953437348_7</builderId>
-      <scriptId>ArtifactoryRpmVersionGrabber.groovy</scriptId>
-      <propagateParams>true</propagateParams>
+      <scriptId>basic_build_step.groovy</scriptId>
+      <propagateParams>false</propagateParams>
       <parameters/>
     </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
-    <hudson.plugins.groovy.Groovy plugin="groovy@1.18">
+    <hudson.plugins.groovy.Groovy plugin="groovy@1.24">
       <scriptSource class="hudson.plugins.groovy.StringScriptSource">
-        <command>println &apos;Placeholder&apos;
+        <command>println &quot;DEBUG = ${System.getenv(&apos;DEBUG&apos;)}&quot;
+println &apos;Placeholder&apos;
 println &quot;Profession = ${System.getenv(&apos;Profession&apos;)}&quot;
 println &quot;RadioButtonInput = ${System.getenv(&apos;RadioButtonInput&apos;)}&quot;
 </command>
       </scriptSource>
-      <groovyName>groovy-2.3.2</groovyName>
+      <groovyName>groovy-2.3.8</groovyName>
       <parameters></parameters>
       <scriptParameters></scriptParameters>
       <properties></properties>

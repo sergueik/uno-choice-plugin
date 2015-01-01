@@ -25,19 +25,28 @@ print_err "Running in DEBUG mode."
     print_err "Received no 'LetterSet' parameter." 
 }
 
-
+  def input = 0
   if (binding.variables.get('RadioButtonInput') != null) {
-    print_err "Received 'RadioButtonInput' parameter in the following value: '${binding.variables.get('RadioButtonInput')}'" 
+    input = binding.variables.get('RadioButtonInput')
+    print_err "Received 'RadioButtonInput' parameter in the following value: '${input}'" 
+
 } else {
     print_err "Received no 'RadioButtonInput' parameter." 
 }
 
 if (binding.variables.get('Gender') != null) {
   gender = binding.variables.get('Gender')
-  if (gender == 'Male')
-    return ['Waiter', 'Actor', 'Usher']
-  else
-    return ['Waitress', 'Actress', 'Usherette']
+  def last_value = ''
+  if (gender == 'Male') {
+    last_value = "Usher ${input}"
+    print_err "last_value = '${last_value}'"
+    return ['Waiter', 'Actor', last_value.toString() ]
+  }
+  else {
+    last_value = "Girlfriend ${input}"
+    print_err "last_value = '${last_value}'"
+    return ['Waitress', 'Actress', last_value.toString()]
+} 
 } else {
   return []
 }
