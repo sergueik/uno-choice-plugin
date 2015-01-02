@@ -34,6 +34,11 @@
             </j:choose>
           </j:forEach>
         </select>
+        <!-- look how view script link is implemented in Scriptler plugin and replicate 
+http://127.0.0.1:8080/scriptler/showScript?id=${instance.scriptlerScriptId}
+
+-->
+        <a target="_blank" name="showScriptlerDetailLink" href="" style="display:none;" onclick="window.open(this.href,'window','width=900,height=640,resizable,scrollbars,toolbar,menubar') ;return false;"> ${%ViewScript}</a>
         <!-- the "show script" link does not work: scriptler expects only one per document
         <a target="_blank" name="showScriptlerDetailLink" href="" style="display:none;" onclick="window.open(this.href,'window','width=900,height=640,resizable,scrollbars,toolbar,menubar') ;return false;"> ${%View Script}</a>
         -->
@@ -59,6 +64,7 @@
     </j:otherwise>
   </j:choose>
   <st:bind var="scriptlerBuilderDesc" value="${descriptor}"/>
+
   <st:once>
     <script type="text/javascript">
 Event.observe(window, 'load', function() {
