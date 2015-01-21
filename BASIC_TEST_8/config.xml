@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <actions/>
+  <description/>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>1</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>DEBUG</name>
+          <description/>
+          <defaultValue>true</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <org.biouno.unochoice.ChoiceParameter plugin="uno-choice@0.38-SNAPSHOT">
+          <name>Gender</name>
+          <description/>
+          <randomName>choice-parameter-175979984662281</randomName>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <script>return ['Male',
+'Female']</script>
+            <fallbackScript/>
+          </script>
+          <visibleItemCount>1</visibleItemCount>
+          <choiceType>PT_SINGLE_SELECT</choiceType>
+          <filterable>false</filterable>
+        </org.biouno.unochoice.ChoiceParameter>
+        <org.biouno.unochoice.ChoiceParameter plugin="uno-choice@0.38-SNAPSHOT">
+          <name>RadioButtonInput</name>
+          <description/>
+          <randomName>choice-parameter-175979997325156</randomName>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <script>return ['1','2','3']</script>
+            <fallbackScript/>
+          </script>
+          <visibleItemCount>1</visibleItemCount>
+          <choiceType>PT_RADIO</choiceType>
+          <filterable>false</filterable>
+        </org.biouno.unochoice.ChoiceParameter>
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@0.38-SNAPSHOT">
+          <name>Profession</name>
+          <description/>
+          <randomName>choice-parameter-175980009382085</randomName>
+          <script class="org.biouno.unochoice.model.ScriptlerScript">
+            <scriptlerScriptId>basic_choice_parameter_script.groovy</scriptlerScriptId>
+            <parameters>
+              <entry>
+                <string/>
+                <string/>
+              </entry>
+            </parameters>
+          </script>
+          <visibleItemCount>1</visibleItemCount>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>Gender,DEBUG,LetterSet,RadioButtonInput</referencedParameters>
+          <choiceType>PT_SINGLE_SELECT</choiceType>
+          <filterable>false</filterable>
+        </org.biouno.unochoice.CascadeChoiceParameter>
+        <org.biouno.unochoice.ChoiceParameter plugin="uno-choice@0.38-SNAPSHOT">
+          <name>LetterSet</name>
+          <description/>
+          <randomName>choice-parameter-175980031099007</randomName>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <script>return ['X','Y','Z']</script>
+            <fallbackScript/>
+          </script>
+          <visibleItemCount>1</visibleItemCount>
+          <choiceType>PT_CHECKBOX</choiceType>
+          <filterable>false</filterable>
+        </org.biouno.unochoice.ChoiceParameter>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <com.synopsys.arc.jenkinsci.plugins.jobrestrictions.jobs.JobRestrictionProperty plugin="job-restrictions@0.3"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers/>
+</project>
