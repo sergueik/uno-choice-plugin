@@ -815,16 +815,21 @@ var UnoChoice = UnoChoice || (function($) {
         if (e.attr('name') == 'value') {
             value = getElementValue(htmlParameter);
         }  else if (e.prop('tagName') == 'DIV') {
-            var subElements = e.find('input[name$="value"]');
-            if (subElements) {
-                var valueBuffer = Array();
-                subElements.each(function() {
-                    var tempValue = getElementValue(jQuery(this));
-                    if (tempValue)
-                        valueBuffer.push(tempValue);
-                });
-                value = valueBuffer.toString();
-            }
+           // NOTE: cannot combine
+           ['input', 'select' ].forEach( function( tagName ) {
+              var subElements = e.find(tagName + '[name$="value"]');
+              if (!!!value)  {
+                 if (subElements) {
+                    var valueBuffer = Array();
+                    subElements.each(function() {
+                       var tempValue = getElementValue(jQuery(this));
+                       if (tempValue)
+                          valueBuffer.push(tempValue);
+                    });
+                    value = valueBuffer.toString();
+                 }
+              }
+           });
         } else if (e.attr('type') == 'file') {
             var filesList = e.files;
             if (filesList && filesList.length > 0) {

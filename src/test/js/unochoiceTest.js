@@ -322,6 +322,6 @@ QUnit.test("Test getElementValue using div", function() {
     );
     var e = jQuery("#div1");
     var val = UnoChoice.getParameterValue(e);
-    equal(val, '2,4', 'PT_MULTI_SELECT element value discovery failed');
+    equal(val, '2,3', 'PT_MULTI_SELECT element value discovery failed');
 });
 
