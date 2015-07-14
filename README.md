@@ -1,9 +1,9 @@
-uno-choice-plugin
+uno-choice-plugin (now is Active Choices)
 =================
 
-A Jenkins **UI plugin for selecting one or multiple options for a job parameter**. It provides a number of capabilities in a single plugin some, but not all, of which can be found amongst several other plugins. 
+A Jenkins **UI plugin for selecting one or multiple options for a job parameter**. It provides a number of capabilities in a single plugin some, but not all, of which can be found amongst several other plugins. Note that as of May 2015 the plugin has been contributed to the Jenkins user community under the name [Active Choices plugin](https://wiki.jenkins-ci.org/display/JENKINS/Active+Choices+Plugin) and can be obtained via the standard Jenkins Plugin Update Center.
 
-As of July 2014 the plugin supports:
+The plugin supports:
 
 1. Selecting one or multiple options for a parameter
 2. Combo-box, check-box and radio button UI
@@ -13,13 +13,10 @@ As of July 2014 the plugin supports:
  
 This plugin is developed in support of the diverse computational requirements of life-science Jenkins applications as proposed by the [BioUno project](http://biouno.org/)
 
-Many parts of the code may be adapted from existing plug-ins. We ask to keep issues 
-related to this plug-in in this plug-in's repository in GitHub (and 
-not in Jenkins JIRA), and also that any enhancements found in this project 
-may be contributed back to the original project (or to a new one).
+We ask that issues 
+related to this plug-in are now kept in the Jenkins JIRA.
 
-Visit the [plug-in Wiki](https://github.com/biouno/uno-choice-plugin/wiki) 
-for more details on each parameter type.
+Visit the [Active Choices plugin Wiki](https://wiki.jenkins-ci.org/display/JENKINS/Active+Choices+Plugin) for a detailed explanation of each parameter type. You may also find additional help and tutorials posted at the [Uno-Choice plugin wiki](https://github.com/biouno/uno-choice-plugin/wiki)
 
 # License
 
